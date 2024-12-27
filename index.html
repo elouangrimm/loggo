@@ -17,25 +17,8 @@
     <button type="submit" class="primary">Login</button>
 </header>
 
-<style>
-    /* spinning animation */
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    #loading-feed {
-        animation: spin 1s linear infinite;
-    }
-</style>
-
 <h2 id="feed-heading">Feed <button id="refresh-sign" class="secondary span">Refreshing...</button></h2>
-<span id="loading-feed" class="secondary">⏳</span>
+<span id="loading-feed" class="secondary">Loading...</span>
 <main></main>
 
 <script type="module">
@@ -106,7 +89,8 @@
             <br>
             <button class="update-button" id="update-status" class="primary">Update status</button>
             <br /><br />
-            <span class="account-dashboard">
+            <details class="account-dashboard">
+            <summary>Account Actions</summary>
             <span class="account-actions">
                 <button onclick="location.href = '${PAGE_PATH}?logout';" class="">Switch account</button>
                 <button id="delete-account" class="danger">Delete account</button>
@@ -133,7 +117,7 @@
                     : ''
             }
             </span>
-        </span>
+        </details>
         `;
             header.innerHTML = html;
             const loggedInToggle = document.querySelector('#logged-in-toggle');
