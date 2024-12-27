@@ -23,6 +23,7 @@ html {
     scroll-behavior: smooth;
     background-color: var(--best-colour);
     font-family: Arial, sans-serif;
+    color: var(--font-light);
 }
 
 * {
