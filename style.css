@@ -41,7 +41,7 @@ html {
 .account-settings {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-top: 10px;
     flex-shrink: 0;
 }
@@ -62,10 +62,6 @@ html {
     background-color: var(--shade-1);
 }
 
-.account-settings > label > input[type='checkbox'] {
-    cursor: pointer;
-}
-
 
 .update-button {
     background-color: var(--update-button);
@@ -83,6 +79,7 @@ html {
     flex-shrink: 0;
     accent-color: var(--accent-colour);
     border-radius: 8px;
+    cursor: pointer;
 }
 
 #feed-heading {
