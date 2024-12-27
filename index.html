@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="/style.css" />
 <!-- <link rel="stylesheet" href="https://todepond.com/style.css" /> -->
 
-<h1>LogiVert</h1>
+<h2>LogiVert</h2>
 
 <header>
     <label for="username">Public username</label>
-    <input type="text" id="username" name="username" autocomplete="off" />
+    <input type="textarea" id="username" name="username" autocomplete="off" />
     <br /><br />
     <label for="password">Password</label>
     <input type="password" id="password" name="password" autocomplete="off" />
@@ -93,8 +93,8 @@
             alert(json.error);
         } else {
             const header = document.querySelector('header');
-            const h1 = document.querySelector('h1');
-            h1.textContent = `Welcome back, `;
+            const h2 = document.querySelector('h2');
+            h2.textContent = `Welcome back, `;
             const namey = document.createElement('span');
             // <span class="name-${username}">${username}</span>!`;
             namey.textContent = username;
@@ -825,16 +825,16 @@
         });
         userActionsElement.appendChild(replyButton);
 
-        const likeButton = document.createElement('button');
-        likeButton.textContent = 'Like';
-        likeButton.classList.add('primary');
-        likeButton.classList.add('action-button');
-        likeButton.addEventListener('click', () => handleLike({
-            username,
-            loggedInUsername,
-            loggedInPassword
-        }));
-        userActionsElement.appendChild(likeButton);
+        // const likeButton = document.createElement('button');
+        // likeButton.textContent = 'Like';
+        // likeButton.classList.add('primary');
+        // likeButton.classList.add('action-button');
+        // likeButton.addEventListener('click', () => handleLike({
+        //     username,
+        //     loggedInUsername,
+        //     loggedInPassword
+        // }));
+        // userActionsElement.appendChild(likeButton);
     }
 
     async function handleLike({
@@ -842,7 +842,7 @@
         loggedInUsername,
         loggedInPassword
     }) {
-        alert('glad you like it babe');
+        alert('Sorry, liking has not been implemented yet...');
     }
 
     addEventListener('pointerdown', (event) => {

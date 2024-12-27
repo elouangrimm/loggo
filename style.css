@@ -11,6 +11,7 @@
     --shade-1: #4A2A28;
     --shade-2: #5C3733;
     --shade-3: #6F4540;
+    --shade-button: #513430;
     --accent-colour: #E3B2A6;
     --font-light: #F4ECEA;
     --font-dark: #1C0E0C;
@@ -50,7 +51,6 @@ html {
     flex-shrink: 0;
     cursor: pointer;
     background-color: var(--shade-2);
-    border-radius: 8px;
     padding: 5px 10px;
     color: var(--font-light);
     transition: background-color 0.3s ease;
@@ -88,12 +88,10 @@ input[type='checkbox'] {
     border: none;
     padding: 5px;
     font-size: 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 #refresh-sign:hover {
-    background-color: var(--accent-colour);
     color: var(--font-dark);
     outline: 2px solid var(--accent-colour);
 }
@@ -114,14 +112,26 @@ input[type='checkbox'] {
 
 .action-button {
     font-size: 0.8em;
-    background-color: var(--shade-2);
+    background-color: var(--shade-button);
     color: var(--font-light);
-    border-radius: 8px;
     padding: 5px 10px;
-    transition: background-color 0.3s ease;
+    border: none;
 }
 
 .action-button:hover {
+    background-color: var(--shade-1);
+}
+
+button {
+    background-color: var(--shade-button);
+    color: var(--font-light);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
     background-color: var(--shade-1);
 }
 
@@ -161,11 +171,23 @@ input[type='checkbox'] {
     background-color: var(--shade-2);
     color: var(--font-light);
     border: none;
-    border-radius: 8px;
     padding: 5px 10px;
     transition: background-color 0.3s ease;
 }
 
 #gif-dialog .close-button:hover {
+    background-color: var(--shade-1);
+}
+
+label, input, button, span {
+    background-color: var(--shade-button);
+    color: var(--font-light);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
     background-color: var(--shade-1);
 }
