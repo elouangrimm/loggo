@@ -44,7 +44,7 @@
     import {
         config
     } from './logiverse.js';
-    const PAGE_PATH = '/playground/loggo/';
+    const PAGE_PATH = '/';
 
     const refreshSign = document.querySelector('#refresh-sign');
     const loadingFeed = document.querySelector('#loading-feed');
@@ -190,19 +190,6 @@
                         password
                     });
                 }
-            });
-            const gifDialog = document.querySelector('#gif-dialog');
-            document.querySelector('#update-gif').addEventListener('click', () => {
-                gifDialog.show();
-            });
-            gifDialog.addEventListener('close', () => {
-                const gif = gifDialog.returnValue;
-                if (!gif) return; // close button clicked
-                handleUpdateStatus({
-                    username,
-                    password,
-                    gif
-                });
             });
         }
 
