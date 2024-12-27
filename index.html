@@ -37,7 +37,7 @@
 </style>
 
 <h2 id="feed-heading">Feed <button id="refresh-sign" class="secondary span">Refreshing...</button></h2>
-<span id="loading-feed" style="position: fixed; top: 10px; left: 10px" class="secondary">⏳</span>
+<span id="loading-feed" class="secondary">⏳</span>
 <main></main>
 
 <script type="module">
@@ -102,7 +102,7 @@
             h2.appendChild(namey);
             h2.append('!');
             let html = `
-            <label for="status">Status</label>
+            <label for="status"><b>Status:</b></label>
             <br>
             <textarea id="status" name="status" rows="4" cols="50"></textarea>
             <br>

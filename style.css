@@ -12,7 +12,8 @@
     --shade-2: #5C3733;
     --shade-3: #6F4540;
     --shade-button: #513430;
-    --accent-colour: #E3B2A6;
+    --accent-colour: #d99f90;
+    --textarea-background: #744b46;
     --font-light: #F4ECEA;
     --font-dark: #1C0E0C;
 }
@@ -69,6 +70,7 @@ input[type='checkbox'] {
     height: 20px;
     flex-shrink: 0;
     accent-color: var(--accent-colour);
+    border-radius: 8px;
 }
 
 #feed-heading {
@@ -129,10 +131,16 @@ button {
     padding: 8px 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 8px;
 }
 
 button:hover {
     background-color: var(--shade-1);
+}
+
+textarea {
+    background-color: var(--textarea-background);
+    border-radius: 4px;
 }
 
 .at {
