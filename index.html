@@ -11,7 +11,7 @@
 
 <header>
     <label for="username">Public username</label>
-    <input type="textarea" id="username" name="username" autocomplete="off" />
+    <input type="text" id="username" name="username" autocomplete="off" />
     <br /><br />
     <label for="password">Password</label>
     <input type="password" id="password" name="password" autocomplete="off" />
@@ -102,8 +102,10 @@
             h2.appendChild(namey);
             h2.append('!');
             let html = `
-            <label>Status</label>
-            <input type="textarea" id="status" name="status" autocomplete="on" />
+            <label for="status">Status</label>
+            <br>
+            <textarea id="status" name="status" rows="4" cols="50"></textarea>
+            <br>
             <button id="update-status" class="primary">Update status</button>
             <br /><br />
             <span class="account-dashboard">

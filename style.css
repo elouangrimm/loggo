@@ -152,6 +152,7 @@ button:hover {
     outline-color: transparent;
 }
 
+/*
 #gif-dialog {
     background-color: var(--shade-3);
     color: var(--font-light);
@@ -179,6 +180,7 @@ button:hover {
     background-color: var(--shade-1);
 }
 
+
 label, input, button, span {
     background-color: var(--shade-button);
     color: var(--font-light);
@@ -187,6 +189,7 @@ label, input, button, span {
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }
+*/
 
 button:hover {
     background-color: var(--shade-1);
