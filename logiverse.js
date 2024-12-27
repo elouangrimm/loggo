@@ -2,13 +2,13 @@ export default {};
 
 export const config = {
     version: '0.0.1',
-    instance_name: 'svenlaa.com',
-    instance_admin: 'Svenlaa',
+    instance_name: 'loggo.pages.dev',
+    instance_admin: 'Elouan',
     endpoints: {
-        update: 'https://api.svenlaa.com/logiverse/update',
-        login: 'https://api.svenlaa.com/logiverse/login',
-        delete: 'https://api.svenlaa.com/logiverse/delete',
-        ban: 'https://api.svenlaa.com/logiverse/ban',
+        update: 'https://api-loggo.elouan-grimm-5a5.workers.dev/logiverse/update',
+        login: 'https://api-loggo.elouan-grimm-5a5.workers.dev/logiverse/login',
+        delete: 'https://api-loggo.elouan-grimm-5a5.workers.dev/logiverse/delete',
+        ban: 'https://api-loggo.elouan-grimm-5a5.workers.dev/logiverse/ban',
     },
     instances: [
         {
@@ -28,6 +28,10 @@ export const config = {
                     alt: 'A sparkly toad gif',
                 },
             },
+        },
+        {
+            name: 'loggo.pages.dev',
+            feed: 'https://api-loggo.elouan-grimm-5a5.workers.dev/logiverse/logs',
         },
         {
             name: 'svenlaa.com',

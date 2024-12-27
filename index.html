@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script
-    defer
-    data-domain="svenlaa.com"
-    data-api="https://who.svenlaa.workers.dev/my/event"
-    src="https://who.svenlaa.workers.dev/my/script.js"
-></script>
+<script defer data-domain="svenlaa.com" data-api="https://who.svenlaa.workers.dev/my/event" src="https://who.svenlaa.workers.dev/my/script.js"></script>
 <title>Loggo</title>
 <meta property="og:image" content="https://svenlaa.com/og.jpg" />
 
 <link rel="stylesheet" href="/style.css" />
 <!-- <link rel="stylesheet" href="https://todepond.com/style.css" /> -->
-<link rel="stylesheet" href="./style.css" />
 
 <h1>Loggo</h1>
-<a
-    href="https://github.com/Svenlaa/svenlaa.com/blob/main/playground/loggo/"
-    style="float: right; position: relative; top: -2px"
-    >View source</a
->
 
 <header>
     <label for="username">Public username</label>
@@ -36,6 +25,7 @@
         0% {
             transform: rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg);
         }
@@ -51,7 +41,9 @@
 <main></main>
 
 <script type="module">
-    import { config } from './logiverse.js';
+    import {
+        config
+    } from './logiverse.js';
     const PAGE_PATH = '/playground/loggo/';
 
     const refreshSign = document.querySelector('#refresh-sign');
@@ -87,7 +79,10 @@
         loadingFeed.style.display = 'block';
         const response = await fetch(config.endpoints.login, {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({
+                username,
+                password
+            }),
         });
 
         const json = await response.json();
@@ -108,20 +103,8 @@
             h1.append('!');
             let html = `
             <label>Status</label>
-            <input type="text" id="status" name="status" autocomplete="off" />
+            <input type="textarea" id="status" name="status" autocomplete="on" />
             <button id="update-status" class="primary">Update status</button>
-            <button id="update-gif">Update status with GIF</button>
-            <dialog id="gif-dialog">
-            <form method="dialog">
-                <header>
-                Pick a GIF
-                <button type="submit" value="" class="close-button" autofocus>Close</button>
-                </header>
-                <button class="gif" value="tode" title="Tode"><img src="https://todepond.com/image/tode.gif" alt="Tode" /></button>
-                <button class="gif" value="berd" title="Berd"><img src="https://todepond.com/image/berd.gif" alt="Berd" /></button>
-                <button class="gif" value="bot" title="Bot"><img src="https://todepond.com/image/bot.gif" alt="Bot" /></button>
-            </form>
-            </dialog>
             <br /><br />
             <span class="account-dashboard">
             <span class="account-actions">
@@ -178,7 +161,10 @@
                 loadingFeed.style.display = 'block';
                 const response = await fetch(config.endpoints.delete, {
                     method: 'POST',
-                    body: JSON.stringify({ username, password }),
+                    body: JSON.stringify({
+                        username,
+                        password
+                    }),
                 });
                 const json = await response.json();
                 loadingFeed.style.display = 'none';
@@ -193,10 +179,16 @@
             const statusInput = document.querySelector('#status');
             statusInput.value = json[3];
             const updateStatusButton = document.querySelector('#update-status');
-            updateStatusButton.addEventListener('click', () => handleUpdateStatus({ username, password }));
+            updateStatusButton.addEventListener('click', () => handleUpdateStatus({
+                username,
+                password
+            }));
             statusInput.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
-                    handleUpdateStatus({ username, password });
+                    handleUpdateStatus({
+                        username,
+                        password
+                    });
                 }
             });
             const gifDialog = document.querySelector('#gif-dialog');
@@ -206,7 +198,11 @@
             gifDialog.addEventListener('close', () => {
                 const gif = gifDialog.returnValue;
                 if (!gif) return; // close button clicked
-                handleUpdateStatus({ username, password, gif });
+                handleUpdateStatus({
+                    username,
+                    password,
+                    gif
+                });
             });
         }
 
@@ -214,7 +210,11 @@
         loadingFeed.style.display = 'none';
     }
 
-    async function handleUpdateStatus({ username, password, gif = null }) {
+    async function handleUpdateStatus({
+        username,
+        password,
+        gif = null
+    }) {
         const button = document.querySelector('#update-status');
         if (button.disabled) {
             return;
@@ -231,7 +231,12 @@
 
         const response = await fetch(config.endpoints.update, {
             method: 'POST',
-            body: JSON.stringify({ status, username, password, gif }),
+            body: JSON.stringify({
+                status,
+                username,
+                password,
+                gif
+            }),
         });
 
         if (response.error) {
@@ -272,10 +277,16 @@
 
         const entries = [];
         const instances = await Promise.all(
-            config.instances.map(({ feed, name }) =>
+            config.instances.map(({
+                    feed,
+                    name
+                }) =>
                 fetch(feed)
-                    .then((res) => res.json())
-                    .then((feed) => ({ name, feed }))
+                .then((res) => res.json())
+                .then((feed) => ({
+                    name,
+                    feed
+                }))
             )
         );
         for (let instance of instances) {
@@ -285,10 +296,10 @@
                 const isGifValid = /^(tode|berd|bot)$/.test(gif);
 
                 const ONE_HOUR = 3600000
-                const TIMEZONE_OFFSET = (new Date().getTimezoneOffset() / 60 /* Convert the timezone offset to hours */) * ONE_HOUR;
-                    
+                const TIMEZONE_OFFSET = (new Date().getTimezoneOffset() / 60 /* Convert the timezone offset to hours */ ) * ONE_HOUR;
 
-                 /* new Date(timestamp) is based on device timezone. */
+
+                /* new Date(timestamp) is based on device timezone. */
                 const isFromFuture = new Date(timestamp) - TIMEZONE_OFFSET > new Date();
                 if (isFromFuture) {
                     continue;
@@ -512,7 +523,12 @@
         }
     }
 
-    function maybeAddActions({ actionsElement, password, admin, entry }) {
+    function maybeAddActions({
+        actionsElement,
+        password,
+        admin,
+        entry
+    }) {
         const enabled = localStorage.getItem('labLoginAdmin') === 'true';
         if (admin === config.instance_admin && entry.instance === config.instance_name) {
             const kickNameButton = document.createElement('button');
@@ -560,7 +576,13 @@
         }
     }
 
-    function handleModeration({ username, password, admin, type, target }) {
+    function handleModeration({
+        username,
+        password,
+        admin,
+        type,
+        target
+    }) {
         const confirmBan = confirm(
             `Are you sure you want to ${type} ${username}'s ${target}? This action is irreversible.`
         );
@@ -570,9 +592,15 @@
 
         loadingFeed.style.display = 'block';
         fetch(config.endpoints.ban, {
-            method: 'POST',
-            body: JSON.stringify({ username, password, admin, type, target }),
-        })
+                method: 'POST',
+                body: JSON.stringify({
+                    username,
+                    password,
+                    admin,
+                    type,
+                    target
+                }),
+            })
             .then((response) => response.json())
             .then((json) => {
                 loadingFeed.style.display = 'none';
@@ -793,7 +821,12 @@
     // });
     // }
 
-    function addUserActions({ userActionsElement, username, loggedInUsername, loggedInPassword }) {
+    function addUserActions({
+        userActionsElement,
+        username,
+        loggedInUsername,
+        loggedInPassword
+    }) {
         const replyButton = document.createElement('button');
         replyButton.textContent = 'Reply';
         replyButton.classList.add('secondary');
@@ -809,11 +842,19 @@
         likeButton.textContent = 'Like';
         likeButton.classList.add('primary');
         likeButton.classList.add('action-button');
-        likeButton.addEventListener('click', () => handleLike({ username, loggedInUsername, loggedInPassword }));
+        likeButton.addEventListener('click', () => handleLike({
+            username,
+            loggedInUsername,
+            loggedInPassword
+        }));
         userActionsElement.appendChild(likeButton);
     }
 
-    async function handleLike({ username, loggedInUsername, loggedInPassword }) {
+    async function handleLike({
+        username,
+        loggedInUsername,
+        loggedInPassword
+    }) {
         alert('glad you like it babe');
     }
 
