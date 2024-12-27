@@ -6,8 +6,21 @@
 /* Login stuff */
 /* =========== */
 
+:root {
+    --best-colour: #381F1C;
+    --shade-1: #4A2A28;
+    --shade-2: #5C3733;
+    --shade-3: #6F4540;
+    --accent-colour: #E3B2A6;
+    --font-light: #F4ECEA;
+    --font-dark: #1C0E0C;
+}
+
 html {
     scroll-behavior: smooth;
+    background-color: var(--best-colour);
+    color: var(--font-light);
+    font-family: Arial, sans-serif;
 }
 
 * {
@@ -18,15 +31,13 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    /* align-items: center; */
     flex-wrap: wrap;
-    gap: 5px 10px;
+    gap: 10px 15px;
 }
 
 .account-settings {
     display: flex;
     flex-direction: column;
-    /* float: right; */
     align-items: flex-end;
     margin-top: 10px;
     flex-shrink: 0;
@@ -37,11 +48,16 @@ html {
     align-items: center;
     gap: 4px;
     flex-shrink: 0;
-    /* border: 1px solid var(--best-colour); */
     cursor: pointer;
-    /* padding: 0px 0px 0px 5px; */
-    /* color: var(--best-colour); */
-    /* accent-color: var(--best-colour); */
+    background-color: var(--shade-2);
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: var(--font-light);
+    transition: background-color 0.3s ease;
+}
+
+.account-settings > label:hover {
+    background-color: var(--shade-1);
 }
 
 .account-settings > label > input[type='checkbox'] {
@@ -52,6 +68,7 @@ input[type='checkbox'] {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+    accent-color: var(--accent-colour);
 }
 
 #feed-heading {
@@ -60,28 +77,30 @@ input[type='checkbox'] {
     align-items: baseline;
     flex-wrap: wrap;
     gap: 10px;
+    color: var(--font-light);
 }
 
 #refresh-sign {
-    color: var(--best-colour);
+    color: var(--accent-colour);
     cursor: pointer;
     user-select: none;
     background: none;
     border: none;
-    padding: 0;
+    padding: 5px;
     font-size: 16px;
-    float: right;
-    flex-shrink: 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #refresh-sign:hover {
-    background-color: var(--best-colour);
-    color: var(--shade-3);
-    outline: 2px solid var(--best-colour);
+    background-color: var(--accent-colour);
+    color: var(--font-dark);
+    outline: 2px solid var(--accent-colour);
 }
 
 .post-title {
     all: unset;
+    color: var(--font-light);
 }
 
 .user-actions {
@@ -95,22 +114,28 @@ input[type='checkbox'] {
 
 .action-button {
     font-size: 0.8em;
+    background-color: var(--shade-2);
+    color: var(--font-light);
+    border-radius: 8px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: var(--shade-1);
 }
 
 .at {
     font-weight: bold;
     text-decoration: none;
-    color: var(--stone-950);
+    color: var(--accent-colour);
     font-family: var(--font-mono);
 }
 
 .at:hover {
-    background-image: none;
-    background-color: var(--stone-950);
-    color: var(--stone-050);
-    outline-color: var(--stone-950);
-    background-clip: unset;
-    -webkit-text-fill-color: unset;
+    background-color: var(--accent-colour);
+    color: var(--font-dark);
+    outline-color: var(--accent-colour);
 }
 
 .untarget :target {
@@ -118,16 +143,29 @@ input[type='checkbox'] {
 }
 
 #gif-dialog {
-    background-color: var(--stone-300);
-    color: white;
+    background-color: var(--shade-3);
+    color: var(--font-light);
+    border-radius: 12px;
+    padding: 15px;
 }
 
 #gif-dialog header {
     align-items: baseline;
     display: flex;
     margin-bottom: 4px;
+    color: var(--accent-colour);
 }
 
 #gif-dialog .close-button {
     margin-left: auto;
+    background-color: var(--shade-2);
+    color: var(--font-light);
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+#gif-dialog .close-button:hover {
+    background-color: var(--shade-1);
 }
