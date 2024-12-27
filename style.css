@@ -12,8 +12,9 @@
     --shade-2: #5C3733;
     --shade-3: #6F4540;
     --shade-button: #513430;
+    --update-button: #4a2d2a;
     --accent-colour: #d99f90;
-    --textarea-background: #744b46;
+    --textarea-background: #bf9e9a;
     --font-light: #F4ECEA;
     --font-dark: #1C0E0C;
 }
@@ -65,7 +66,18 @@ html {
     cursor: pointer;
 }
 
-input[type='checkbox'] {
+
+.update-button {
+    background-color: var(--update-button);
+    color: var(--font-light);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.auto-login {
     width: 20px;
     height: 20px;
     flex-shrink: 0;

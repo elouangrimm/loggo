@@ -2,8 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script defer data-domain="svenlaa.com" data-api="https://who.svenlaa.workers.dev/my/event" src="https://who.svenlaa.workers.dev/my/script.js"></script>
 <title>LogiVert</title>
-<meta property="og:image" content="https://svenlaa.com/og.jpg" />
-
 <link rel="stylesheet" href="/style.css" />
 <!-- <link rel="stylesheet" href="https://todepond.com/style.css" /> -->
 
@@ -106,7 +104,7 @@
             <br>
             <textarea id="status" name="status" rows="4" cols="50"></textarea>
             <br>
-            <button id="update-status" class="primary">Update status</button>
+            <button class="update-button" id="update-status" class="primary">Update status</button>
             <br /><br />
             <span class="account-dashboard">
             <span class="account-actions">
@@ -116,12 +114,11 @@
         `;
 
             const loginAutomatically = localStorage.getItem('labLoginAutoLogin') !== 'false';
-            // if (username === "TodePond") {
             html += `
             <span class="account-settings">
                 <label for="logged-in-toggle">
                 Login automatically
-                <input type="checkbox" id="logged-in-toggle" name="logged-in-toggle" ${
+                <input type="checkbox" class="auto-login" id="logged-in-toggle" name="logged-in-toggle" ${
                     loginAutomatically ? 'checked' : ''
                 } />
                 </label>
