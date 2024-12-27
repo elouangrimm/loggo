@@ -22,7 +22,6 @@
 html {
     scroll-behavior: smooth;
     background-color: var(--best-colour);
-    color: var(--font-light);
     font-family: Arial, sans-serif;
 }
 
