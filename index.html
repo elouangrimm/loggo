@@ -266,7 +266,8 @@
                 const isGifValid = /^(tode|berd|bot)$/.test(gif);
 
                 const ONE_HOUR = 3600000
-                const TIMEZONE_OFFSET = (new Date().getTimezoneOffset() / 60 /* Convert the timezone offset to hours */ ) * ONE_HOUR;
+                const TIMEZONE_OFFSET = 
+                    (new Date().getTimezoneOffset() / 60) /* Convert the timezone offset to hours */ * ONE_HOUR;
 
 
                 /* new Date(timestamp) is based on device timezone. */
@@ -588,10 +589,6 @@
 
         let blockquote = markdown.startsWith('>');
         if (blockquote) html += '<blockquote>';
-
-        if (markdown === 'please add gifs') {
-            return '<img class="nogif" src="gif.gif" alt="gifs are not supported">';
-        }
 
         markdown = markdown.replaceAll('<', '').replaceAll('>', '').replaceAll('&', '');
 
